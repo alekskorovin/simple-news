@@ -10,6 +10,11 @@ var mongoose = require('mongoose');
 require('./models/Posts');
 require('./models/Comments');
 
+// Passport
+var passport = require('passport');
+require('./models/Users');
+require('./config/passport');
+
 // Routes
 var users = require('./routes/users');
 var routes = require('./routes/index');
@@ -32,6 +37,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 // Serve static 'public' folder like root of application
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+app.use(passport.initialize());
 
 // Main routes
 app.use('/', routes);

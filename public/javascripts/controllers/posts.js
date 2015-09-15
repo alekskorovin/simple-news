@@ -3,8 +3,11 @@ app.controller('PostsController', [
 '$stateParams',
 'posts',
 'post',
-function($scope, $stateParams, posts, post) {
+'authorization',
+function($scope, $stateParams, posts, post, authorization) {
     $scope.post = post;
+
+    $scope.authorization = authorization.isLoggedIn;
 
     $scope.addComment = function () {
         if ($scope.body === '') {

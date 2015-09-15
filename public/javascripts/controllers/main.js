@@ -1,5 +1,7 @@
 
-app.controller('MainController', ['$scope', 'posts', function ($scope, posts) {
+app.controller('MainController', ['$scope', 'posts', 'authorization', function ($scope, posts, authorization) {
+
+    $scope.authorization = authorization.isLoggedIn;
 
     $scope.posts = posts.posts;
 

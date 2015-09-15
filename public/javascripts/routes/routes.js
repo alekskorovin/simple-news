@@ -20,6 +20,26 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
                     return posts.get($stateParams.id);
                 }]
             }
+        })
+        .state('login', {
+            url: '/login',
+            templateUrl: '/pages/login.html',
+            controller: 'AuthentificationController',
+            onEnter: ['$state', 'authorization', function ($state, authorization) {
+                if (authorization.isLoggedIn()) {
+                    $state.go('home');
+                }
+            }]
+        })
+        .state('register', {
+            url: '/register',
+            templateUrl: '/pages/registration.html',
+            controller: 'AuthentificationController',
+            onEnter: ['$state', 'authorization', function ($state, authorization) {
+                if (authorization.isLoggedIn()) {
+                    $state.go('home');
+                }
+            }]
         });
 
     $urlRouterProvider.otherwise('home');
