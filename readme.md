@@ -1,7 +1,9 @@
+Run MongoDB
+
 Open NodeJS console
 run command:
-~ npm start
+`npm start`
 
 open browser and go to:
-http://localhost:3000/
+`http://localhost:3000/`
 
