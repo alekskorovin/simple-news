@@ -13,11 +13,19 @@
     </h3>
 </div>
 <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
-    <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementCommentUpvotes(comment)"></span>
-    {{comment.upvotes}} - by {{comment.author}}
-    <span style="font-size:20px; margin-left:10px;">
+
+    <span class="comment-body">
         {{comment.body}}
     </span>
+    <div class="controls">
+        <span class="rating-box">
+            <span class="rating">{{comment.upvotes}}</span>
+            <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementCommentUpvotes(comment)"></span>
+        </span>
+        <div class="author">
+            by {{comment.author}}
+        </div>
+    </div>
 </div>
 
 <div ng-hide="isLoggedIn()">
